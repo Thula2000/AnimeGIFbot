@@ -1,6 +1,6 @@
 const axios = require("axios");
 const Discord = require("discord.js");
-const config = require("./config.json");
+const BOT_TOKEN = process.env.BOT_TOKEN || require("./config.json").BOT_TOKEN;
 const client = new Discord.Client();
 
 client.on("message", function (message) {
@@ -21,4 +21,4 @@ client.on("message", function (message) {
   });
 });
 
-client.login(config.BOT_TOKEN);
+client.login(BOT_TOKEN);
