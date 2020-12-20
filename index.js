@@ -1,3 +1,4 @@
+const express = require("express");
 const axios = require("axios");
 const Discord = require("discord.js");
 const BOT_TOKEN = process.env.BOT_TOKEN || require("./config.json").BOT_TOKEN;
@@ -24,3 +25,9 @@ client.on("message", function (message) {
 });
 
 client.login(BOT_TOKEN);
+
+const app = express();
+const port = process.env.PORT || 3001;
+app.get("/", (req, res) => res.send("Hello from Render!"));
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
